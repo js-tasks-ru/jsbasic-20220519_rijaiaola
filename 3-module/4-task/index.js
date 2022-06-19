@@ -1,13 +1,11 @@
 function showSalary(users, age) {
-  let result = [];
+  // let result = [];
 
-  for (let user of users) {
-    if (user.age <= age) {
-      result.push(`${user.name}, ${user.balance}`);
-      result.push('\n');
-    }
-  }
-  result.pop();
+  let result = users.filter((user) => user.age <= age)
+                    .map( (element) => `${element.name}, ${element.balance}\n`);
+
+    result[result.length - 1] = result[result.length - 1].substring(0, result[result.length - 1].length - 1);
+
 
   return result.join('');
 }
